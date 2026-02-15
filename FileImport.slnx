@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="FileImport.Api/FileImport.Api.csproj" />
+  <Project Path="FileImport.Application/FileImport.Application.csproj" Id="e908171a-720b-4500-ba99-3d65eef0bbc2" />
+  <Project Path="FileImport.Domain/FileImport.Domain.csproj" Id="c8da2237-f260-44d8-9c60-fffe6ac687b0" />
+  <Project Path="FileImport.Infrastructure/FileImport.Infrastructure.csproj" Id="7ed55f5d-40bc-47bd-8af5-ced34935c25c" />
+</Solution>
