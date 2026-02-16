@@ -35,7 +35,7 @@ namespace FileImport.Application.Users.Commands
                 //Prvo proveravamo da li je email na whitelist-u. Ovo nismo uradili na validaciji jer ćemo ovde svakako morati da izvučemo ID.
                 var payload = await _googleAuthService.GetGooglePayload(request.User.Token);
                 var user_id = await _userRepo.IsUserAuthorized(payload.Email);
-                if(user_id == 0) throw new ArgumentException("You are not whitelisted.");
+                if(user_id == 0) throw new UnauthorizedAccessException("You are not whitelisted.");
                 UserDetailsDto result = new UserDetailsDto();
                 var claims = new List<Claim>()
                         {

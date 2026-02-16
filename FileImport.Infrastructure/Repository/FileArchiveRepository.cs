@@ -35,7 +35,7 @@ namespace FileImport.Infrastructure.Repository
         {
             //CheckedFile.DocumentNumber treba da bude indeksiran da bi ovaj upit prolazio brzo.
             var cfID = await _context.CheckedFiles.AsNoTracking().Where(x => x.DocumentNumber == DocumentNumber && x.FilePath == newFilePath).Select(x => x.Id).FirstOrDefaultAsync();
-            if (cfID == 0) throw new Exception("This file is already checked.");
+            if (cfID != 0) throw new Exception("This file is already checked.");
             CheckedFile entity = new CheckedFile { 
                 AuthorizedUserId = user_id,
                 FilePath = newFilePath,

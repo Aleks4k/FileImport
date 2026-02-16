@@ -49,8 +49,8 @@ namespace FileImport.Application.Files.Commands
                     throw new UnauthorizedAccessException("Access token is not valid.");
                 }
                 //Premeštamo fajl.
+                var fileName = await _fileService.getFileName(request.Request.path); //Moramo ovo pre moveFile jer nismo adapitrali da getFileName radi sa checked folderom.
                 var newFileLocation = await _fileService.moveFileForCheck(request.Request.path, false);
-                var fileName = await _fileService.getFileName(request.Request.path);
                 var DocumentNumber = fileName.Split('_')[0];
                 //Sada snimamo u repository.
                 try {

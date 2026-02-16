@@ -283,6 +283,8 @@ namespace FileImport.Infrastructure.Services
             if (!File.Exists(fullPath)) throw new InvalidFilePathException("File not found.");
             string newFullPath = fullPath.ReplaceFirst(fileAlreadyChecked ? _options.RootPathChecked : _options.RootPath, fileAlreadyChecked ? _options.RootPath : _options.RootPathChecked);
             if (File.Exists(newFullPath)) throw new InvalidFilePathException("File already exists.");
+            var newDirectoryPath = Path.GetDirectoryName(newFullPath);
+            Directory.CreateDirectory(newDirectoryPath!);
             File.Move(fullPath, newFullPath);
             return Path.GetRelativePath(fileAlreadyChecked ? _options.RootPath : _options.RootPathChecked, newFullPath);
         }
