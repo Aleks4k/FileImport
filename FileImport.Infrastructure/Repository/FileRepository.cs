@@ -152,7 +152,7 @@ namespace FileImport.Infrastructure.Repository
                         var oldFile = newList[index];
                         newList[index] = new FileDetailsDto
                         {
-                            name = oldFile.name,
+                            name = newName,
                             isFolder = oldFile.isFolder,
                         };
                         _cache.Set(pathKey, newList);
