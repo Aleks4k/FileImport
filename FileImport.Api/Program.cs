@@ -22,7 +22,7 @@ builder.Services.AddCors(options =>
     //Dodajemo adresu localhost-a frontend aplikacije.
     options.AddPolicy("Development", policy =>
     {
-        policy.WithOrigins("https://localhost:7244")
+        policy.WithOrigins(["https://localhost:7244", "https://localhost"])
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials();
